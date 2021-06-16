@@ -1,13 +1,13 @@
 <?php
-class Buku_m extends CI_Model {
+class peminjam_m extends CI_Model {
 
 	public function get($id = null)
 	{
-		// $query = $this->db->query("SELECT * FROM tb_buku");
+		// $query = $this->db->query("SELECT * FROM tb_peminjam");
 		$this->db->select('*');
-		$this->db->from('tb_buku');
+		$this->db->from('tb_peminjam');
 		if($id != null) {
-			$this->db->where('id_buku', $id);
+			$this->db->where('id_peminjam', $id);
 		}
 		$query = $this->db->get();
 		return $query;
@@ -16,9 +16,9 @@ class Buku_m extends CI_Model {
 	public function add($data)
 	{
 		$param = array(
+			'nama' => $data['nama'],
+			'nim' => $data['nim'],
 			'no_induk' => $data['no_induk'],
-			'judul' => $data['judul'],
-			'pengarang' => $data['pengarang'],
 			'penerbit' => $data['penerbit'],
 			'tahun_terbit' => $data['tahun'],
 			'ISBN' => $data['ISBN'],
