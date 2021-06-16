@@ -19,32 +19,32 @@ class peminjam_m extends CI_Model {
 			'nama' => $data['nama'],
 			'nim' => $data['nim'],
 			'no_induk' => $data['no_induk'],
-			'penerbit' => $data['penerbit'],
-			'tahun_terbit' => $data['tahun'],
-			'ISBN' => $data['ISBN'],
+			'judul_buku' => $data['judul_buku'],
+			'tgl_pinjam' => $data['tgl_pinjam'],
+			'tgl_kembali' => $data['tgl_kembali'],
 		);
-		$this->db->insert('tb_buku', $param);
+		$this->db->insert('tb_peminjam', $param);
 	}
 
 	public function edit($data)
 	{
 		$param = array(
+			'nama' => $data['nama'],
+			'nim' => $data['nim'],
 			'no_induk' => $data['no_induk'],
-			'judul' => $data['judul'],
-			'pengarang' => $data['pengarang'],
-			'penerbit' => $data['penerbit'],
-			'tahun_terbit' => $data['tahun'],
-			'ISBN' => $data['ISBN'],
+			'judul_buku' => $data['judul_buku'],
+			'tgl_pinjam' => $data['tgl_pinjam'],
+			'tgl_kembali' => $data['tgl_kembali'],
 		);
 		$this->db->set($param);
-		$this->db->where('id_buku', $data['id']);
-		$this->db->update('tb_buku');
+		$this->db->where('id_peminjam', $data['id']);
+		$this->db->update('tb_peminjam');
 	}
 
 	public function del($id)
 	{
-		$this->db->where('id_buku', $id);
-		$this->db->delete('tb_buku');
+		$this->db->where('id_peminjam', $id);
+		$this->db->delete('tb_peminjam');
 	}
 
 }
